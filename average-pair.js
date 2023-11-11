@@ -1,30 +1,27 @@
 "use strict";
 
-// add whatever parameters you deem necessary & write docstring
-
 /** Takes an array of nums and an average target Number
  *  returns true if there is a pair average that matches target
  *  otherwise returns false
  */
-function averagePair(nums,avgTarget) {
-  let left = 0;
-  let right = nums.length-1;
-  let avgCurrent;
+function averagePair(nums, avgTarget) {
+  let leftIndex = 0;
+  let rightIndex = nums.length - 1;
   // check if value at left/right index avg === avg Target
   // if value is too high, decrease right
   //  otherwise increase left
 
-  while(left < right){
-    avgCurrent = (nums[left]+nums[right])/2;
-    if(avgCurrent === avgTarget){
+  while (leftIndex < rightIndex) {
+    const avgCurrent = (nums[leftIndex] + nums[rightIndex]) / 2;
+    if (avgCurrent === avgTarget) {
       return true;
     }
-    if(avgCurrent > avgTarget){
-      right--;
+    if (avgCurrent > avgTarget) {
+      rightIndex--;
     }
-      else{
-        left++;
-      }
+    else {
+      leftIndex++;
+    }
   }
 
   return false;
